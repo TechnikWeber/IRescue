@@ -25,6 +25,18 @@ DNSServer      dns;
 
 bool learning = false;
 
+// ---- live log (broadcast + kept for late joiners) ------------------------
+#include <deque>
+std::deque<String> logbuf;
+void logLine(const String &s) {
+  String line = "[" + String(millis() / 1000) + "s] " + s;
+  logbuf.push_back(line);
+  while (logbuf.size() > 60) logbuf.pop_front();
+  JsonDocument d; d["event"] = "log"; d["line"] = line;
+  String out; serializeJson(d, out); ws.textAll(out);
+  Serial.println(line);
+}
+
 // ---- status broadcast ----------------------------------------------------
 String statusJson() {
   JsonDocument d;
@@ -36,7 +48,21 @@ String statusJson() {
   d["sensor"]   = oracle.last();
   d["baseline"] = oracle.baseline();
   d["calibrated"] = oracle.calibrated();
+  d["feedback"] = engine.waitForFeedback();
   d["learning"] = learning;
+
+  // Live "now sending" info.
+  const LastSent &ls = engine.last();
+  if (ls.valid) {
+    JsonObject cur = d["cur"].to<JsonObject>();
+    cur["proto"] = typeToString(ls.type);
+    cur["addr"]  = ls.addr;
+    cur["cmd"]   = ls.cmd;
+    cur["value"] = "0x" + String((uint32_t)ls.value, HEX);
+    cur["bits"]  = ls.bits;
+    cur["name"]  = ls.name;
+  }
+
   JsonArray hits = d["hits"].to<JsonArray>();
   for (const Hit &h : engine.hits()) {
     JsonObject o = hits.add<JsonObject>();
@@ -68,6 +94,7 @@ void setupRoutes() {
 
   server.on("/api/calibrate", HTTP_POST, [](AsyncWebServerRequest *r) {
     oracle.calibrate();
+    logLine("kalibriert, Grundlinie=" + String((int)oracle.baseline()));
     sendJson(r, 200, statusJson());
   });
 
@@ -78,7 +105,14 @@ void setupRoutes() {
   });
 
   server.on("/api/start", HTTP_POST, [](AsyncWebServerRequest *r) {
-    if (!oracle.calibrated()) { sendJson(r, 400, "{\"error\":\"calibrate first\"}"); return; }
+    // feedback=1 -> use the light sensor and stop on a blink (needs calibration)
+    // feedback=0 -> "blind" mode: just send everything, no sensor needed
+    bool feedback = argInt(r, "feedback", 1) != 0;
+    engine.setWaitForFeedback(feedback);
+    if (feedback && !oracle.calibrated()) {
+      sendJson(r, 400, "{\"error\":\"calibrate first (or turn feedback off)\"}");
+      return;
+    }
     String m = r->hasParam("mode", true) ? r->getParam("mode", true)->value() : "full";
     if (m == "pack") {
       loadCandidates("/candidates.json", engine.candidates_);
@@ -88,20 +122,55 @@ void setupRoutes() {
     } else {
       engine.start(Mode::FULL_NEC);
     }
+    logLine("Suche gestartet: " + m + (feedback ? " (mit Sensor)" : " (blind)")
+            + ", " + String(engine.total()) + " Codes");
     pushStatus();
     sendJson(r, 200, statusJson());
   });
 
-  server.on("/api/stop",   HTTP_POST, [](AsyncWebServerRequest *r){ engine.stop();   pushStatus(); sendJson(r,200,statusJson()); });
-  server.on("/api/pause",  HTTP_POST, [](AsyncWebServerRequest *r){ engine.pause();  pushStatus(); sendJson(r,200,statusJson()); });
-  server.on("/api/resume", HTTP_POST, [](AsyncWebServerRequest *r){ engine.resume(); pushStatus(); sendJson(r,200,statusJson()); });
+  server.on("/api/stop",   HTTP_POST, [](AsyncWebServerRequest *r){ engine.stop();   logLine("gestoppt"); pushStatus(); sendJson(r,200,statusJson()); });
+  server.on("/api/pause",  HTTP_POST, [](AsyncWebServerRequest *r){ engine.pause();  logLine("pausiert"); pushStatus(); sendJson(r,200,statusJson()); });
+  server.on("/api/resume", HTTP_POST, [](AsyncWebServerRequest *r){ engine.resume(); logLine("weiter"); pushStatus(); sendJson(r,200,statusJson()); });
 
-  // Send one code (test a candidate / confirm a hit).
-  server.on("/api/test", HTTP_POST, [](AsyncWebServerRequest *r) {
-    uint8_t addr = argInt(r, "address", 0);
-    uint8_t cmd  = argInt(r, "command", 0);
-    engine.sendNecAddrCmd(addr, cmd);
+  // Manual send. NEC: address+command. Any protocol: protocol+value(+bits).
+  auto handleSend = [](AsyncWebServerRequest *r) {
+    if (r->hasParam("protocol", true) && r->hasParam("value", true)) {
+      decode_type_t t = strToDecodeType(r->getParam("protocol", true)->value().c_str());
+      uint64_t v = strtoull(r->getParam("value", true)->value().c_str(), nullptr, 0);
+      uint16_t bits = argInt(r, "bits", 32);
+      engine.sendOne(t, v, bits);
+      logLine("gesendet " + typeToString(t) + " 0x" + String((uint32_t)v, HEX)
+              + "/" + String(bits) + "b");
+    } else {
+      uint8_t addr = argInt(r, "address", 0);
+      uint8_t cmd  = argInt(r, "command", 0);
+      engine.sendNecAddrCmd(addr, cmd);
+      logLine("gesendet NEC addr=" + String(addr) + " cmd=" + String(cmd));
+    }
+    pushStatus();
     sendJson(r, 200, "{\"ok\":true}");
+  };
+  server.on("/api/send", HTTP_POST, handleSend);
+  server.on("/api/test", HTTP_POST, handleSend);  // backwards-compatible alias
+
+  // Candidate list for the manual "click through the list" view.
+  server.on("/api/candidates", HTTP_GET, [](AsyncWebServerRequest *r) {
+    if (engine.candidates_.empty()) loadCandidates("/candidates.json", engine.candidates_);
+    int off = r->hasParam("offset") ? r->getParam("offset")->value().toInt() : 0;
+    int lim = r->hasParam("limit")  ? r->getParam("limit")->value().toInt()  : 200;
+    JsonDocument d;
+    d["total"] = (uint32_t)engine.candidates_.size();
+    JsonArray a = d["items"].to<JsonArray>();
+    for (int i = off; i < off + lim && i < (int)engine.candidates_.size(); i++) {
+      const Candidate &c = engine.candidates_[i];
+      JsonObject o = a.add<JsonObject>();
+      o["i"] = i;
+      o["proto"] = typeToString(c.type);
+      o["name"] = c.name;
+      if (c.hasAddrCmd) { o["address"] = c.addr; o["command"] = c.cmd; }
+      else { o["value"] = "0x" + String((uint32_t)c.value, HEX); o["bits"] = c.bits; }
+    }
+    String out; serializeJson(d, out); sendJson(r, 200, out);
   });
 
   // Packs
@@ -153,6 +222,8 @@ void handleLearn() {
       d["command"] = (res.value >> 8) & 0xFF;
     }
     String out; serializeJson(d, out); ws.textAll(out);
+    logLine("empfangen " + typeToString(res.decode_type) + " 0x"
+            + String((uint32_t)res.value, HEX));
     irrecv.resume();
   }
 }
@@ -180,7 +251,13 @@ void setup() {
 
   ws.onEvent([](AsyncWebSocket *, AsyncWebSocketClient *c, AwsEventType type,
                 void *, uint8_t *, size_t) {
-    if (type == WS_EVT_CONNECT) c->text(statusJson());
+    if (type == WS_EVT_CONNECT) {
+      c->text(statusJson());
+      for (const String &l : logbuf) {          // replay recent log to late joiners
+        JsonDocument d; d["event"] = "log"; d["line"] = l;
+        String out; serializeJson(d, out); c->text(out);
+      }
+    }
   });
   server.addHandler(&ws);
   setupRoutes();
@@ -188,10 +265,22 @@ void setup() {
 }
 
 uint32_t lastPush = 0;
+size_t   lastHitCount = 0;
 void loop() {
   dns.processNextRequest();
   engine.tick();          // one code per iteration (no-op when idle/paused)
   handleLearn();
+
+  // Log any new blink hit the engine just found.
+  if (engine.hits().size() > lastHitCount) {
+    for (size_t i = lastHitCount; i < engine.hits().size(); i++) {
+      const Hit &h = engine.hits()[i];
+      logLine("★ TREFFER: Lampe blinkte bei addr=" + String(h.address)
+              + " cmd=" + String(h.command) + " (dip " + String(h.dip) + ")");
+    }
+    lastHitCount = engine.hits().size();
+  }
+  if (!engine.running() && lastHitCount && engine.index() == 0) lastHitCount = 0;
 
   uint32_t now = millis();
   if (now - lastPush > 250) {      // stream progress ~4x/s

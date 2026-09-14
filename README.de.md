@@ -7,7 +7,18 @@ IRescue ist ein ESP32-Werkzeug, das **die verlorenen Codes per Bruteforce
 wiederfindet** und später **Fernbedienungen anlernt und ihre Codes als Packs
 teilt**, damit andere mit demselben Gerät einfach ein Pack laden können.
 
-> Status: Konzept / früher Prototyp, noch nichts benutzbar.
+> Status: früher Prototyp. Firmware baut und flasht; Hardware-Test steht aus.
+
+## Modi
+
+- **Automatische Suche** mit dem Lichtsensor als Orakel — stoppt beim Blinken.
+- **Blind-Modus** — ohne Sensor: schickt einfach alle Codes durch („Sensor-
+  Rückmeldung nutzen" abwählen), du prüfst optisch selbst.
+- **Manuell senden** — beliebige NEC-Adresse/-Befehl, oder beliebiges Protokoll
+  + Hex-Wert, oder die Codeliste einzeln durchklicken und per Auge prüfen.
+- **Live-Ansicht** — aktuell gesendeter Code, Fortschrittsbalken und ein
+  laufendes Protokoll von allem (gesendet, empfangen, Treffer).
+- **Anlernen** einer Fernbedienung (mit IR-Empfänger) und Speichern als Pack.
 
 ## Funktionsweise
 

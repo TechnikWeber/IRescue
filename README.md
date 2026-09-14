@@ -7,7 +7,18 @@ ESP32-based tool that **finds the lost codes by brute force**, and later
 **learns remotes and shares their codes as packs**, so others with the same
 device can just load a pack.
 
-> Status: concept / early prototype, nothing usable yet.
+> Status: early prototype. Firmware builds and flashes; needs hardware testing.
+
+## Modes
+
+- **Automatic search** with the light sensor as an oracle — stops on the blink.
+- **Blind mode** — no sensor needed: just fire every code (uncheck "use sensor
+  feedback"), watch the lamp yourself.
+- **Manual send** — type any NEC address/command, or any protocol + hex value,
+  or step through the code list one by one and check by eye.
+- **Live view** — see the code being sent right now, a progress bar, and a
+  running log of everything that happens (sent, received, hits).
+- **Learn** a remote (with an IR receiver) and save codes as device packs.
 
 ## How it works
 

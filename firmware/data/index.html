@@ -12,13 +12,27 @@
     <span id="conn" class="pill off">verbindet…</span>
   </header>
 
+  <!-- LIVE: what is happening right now -->
   <section class="card">
-    <h2>1 · Lichtsensor</h2>
+    <h2>Live</h2>
+    <div class="now">
+      <span class="nowlbl">sendet gerade</span>
+      <span id="nowCode" class="nowcode mono">–</span>
+      <span id="nowName" class="mono"></span>
+    </div>
+    <div class="progress"><div id="prog"></div></div>
+    <span id="progLbl" class="mono">bereit</span>
+    <h3>Protokoll / Ausgabe</h3>
+    <div id="log" class="log"></div>
+  </section>
+
+  <section class="card">
+    <h2>1 · Lichtsensor <span class="opt">(optional)</span></h2>
     <div class="row">
       <div class="gauge"><div id="bar"></div></div>
       <span id="sensorVal" class="mono">–</span>
     </div>
-    <p class="hint">Lampe einschalten, Sensor davor, dann kalibrieren. Grundlinie = Helligkeit im Normalzustand.</p>
+    <p class="hint">Nur nötig, wenn IRescue selbst am Blinken erkennen soll, ob geschaltet hat. Lampe an, Sensor davor, kalibrieren.</p>
     <div class="row">
       <button id="calBtn">Kalibrieren</button>
       <span id="baseVal" class="mono">Grundlinie: –</span>
@@ -28,39 +42,69 @@
   </section>
 
   <section class="card">
-    <h2>2 · Suche</h2>
+    <h2>2 · Automatische Suche</h2>
     <div class="modes">
       <label><input type="radio" name="mode" value="pack" checked> Bekannte Codes (Pack) — schnellster Versuch</label>
       <label><input type="radio" name="mode" value="addr"> Eine Adresse, alle 256 Befehle <input id="addr" type="number" min="0" max="255" value="0"></label>
       <label><input type="radio" name="mode" value="full"> Kompletter NEC-Sweep — ~2 h</label>
     </div>
+    <label class="check"><input id="feedback" type="checkbox" checked> Sensor-Rückmeldung nutzen (bei Blinken stoppen). <b>Aus</b> = Blind-Modus, schickt einfach alles.</label>
     <div class="row">
       <button id="startBtn" class="primary">Start</button>
       <button id="pauseBtn">Pause</button>
       <button id="resumeBtn">Weiter</button>
       <button id="stopBtn" class="danger">Stop</button>
     </div>
-    <div class="progress"><div id="prog"></div></div>
-    <span id="progLbl" class="mono">–</span>
   </section>
 
   <section class="card">
-    <h2>3 · Treffer</h2>
-    <p class="hint">Beim Blinken pausiert die Suche. Treffer bestätigen (Senden) und ins Gerät-Pack speichern.</p>
+    <h2>3 · Manuell senden</h2>
+    <p class="hint">Selbst schicken und optisch prüfen, ob die Lampe reagiert.</p>
+
+    <h3>NEC (Adresse / Befehl)</h3>
+    <div class="row">
+      Adr <input id="mAddr" type="number" min="0" max="255" value="0">
+      Cmd <input id="mCmd" type="number" min="0" max="255" value="0">
+      <button id="mSendNec" class="primary">Senden</button>
+    </div>
+
+    <h3>Beliebiger Code</h3>
+    <div class="row">
+      <select id="mProto">
+        <option>NEC</option><option>SAMSUNG</option><option>SONY</option>
+        <option>RC5</option><option>RC6</option><option>PANASONIC</option>
+        <option>JVC</option><option>LG</option><option>NECEXT</option>
+      </select>
+      Wert <input id="mVal" type="text" value="0x0" size="12">
+      Bits <input id="mBits" type="number" min="1" max="64" value="32">
+      <button id="mSendRaw" class="primary">Senden</button>
+    </div>
+
+    <h3>Liste durchklicken</h3>
+    <div class="row">
+      <button id="listLoad">Liste laden</button>
+      <button id="stepPrev">◀</button>
+      <span id="stepInfo" class="mono">–</span>
+      <button id="stepNext">▶</button>
+      <button id="stepSend" class="primary">Senden</button>
+    </div>
+    <div id="candlist" class="candlist"></div>
+  </section>
+
+  <section class="card">
+    <h2>4 · Treffer</h2>
     <table id="hits"><thead><tr><th>#</th><th>Adr</th><th>Cmd</th><th>Dip</th><th></th></tr></thead><tbody></tbody></table>
   </section>
 
   <section class="card">
-    <h2>4 · Fernbedienung anlernen</h2>
+    <h2>5 · Fernbedienung anlernen</h2>
     <div class="row">
       <button id="learnBtn">Anlernen starten</button>
       <span id="learnState" class="mono">aus</span>
     </div>
     <p class="hint">Braucht einen IR-Empfänger (TSOP38238) an GPIO27. Taste drücken → erscheint hier.</p>
     <ul id="learned"></ul>
-    <div class="row">
-      <input id="packName" placeholder="Pack-Name, z.B. Laufband-Remote">
-    </div>
+    <div class="row"><input id="packName" placeholder="Pack-Name, z.B. Laufband-Remote"></div>
   </section>
 
   <section class="card">

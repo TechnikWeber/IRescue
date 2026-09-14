@@ -26,3 +26,19 @@ table { width:100%; border-collapse:collapse; font-size:14px; }
 th,td { text-align:left; padding:6px 8px; border-bottom:1px solid #2a2e3a; }
 th { color:var(--mut); font-weight:500; }
 ul { padding-left:18px; }
+h3 { font-size:13px; color:var(--mut); margin:16px 0 6px; text-transform:uppercase; letter-spacing:.4px; }
+.opt { color:var(--mut); font-weight:400; text-transform:none; letter-spacing:0; }
+.check { background:#0d0f14; padding:10px 12px; border-radius:8px; font-size:14px; }
+.now { display:flex; align-items:baseline; gap:10px; flex-wrap:wrap; margin-bottom:10px; }
+.nowlbl { color:var(--mut); font-size:12px; text-transform:uppercase; letter-spacing:.5px; }
+.nowcode { font-size:22px; color:var(--ok); }
+#nowName { color:var(--mut); }
+.log { background:#0a0c10; border-radius:8px; padding:10px 12px; height:180px; overflow-y:auto;
+       font-family:ui-monospace,monospace; font-size:12.5px; line-height:1.5; }
+.log div { white-space:pre-wrap; color:#b9c0d0; }
+.log div.hit { color:var(--ok); font-weight:600; }
+.candlist { max-height:240px; overflow-y:auto; margin-top:10px; }
+.candrow { display:flex; align-items:center; gap:10px; padding:5px 8px; border-bottom:1px solid #23272f; font-size:13px; }
+.candrow .cn { color:var(--mut); flex:1; }
+select { background:#2a2e3a; color:var(--fg); border:0; border-radius:6px; padding:8px; }
+input[type=text] { background:#0d0f14; color:var(--fg); border:1px solid #2a2e3a; border-radius:6px; padding:7px; }
