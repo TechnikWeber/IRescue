@@ -9,6 +9,8 @@ teilt**, damit andere mit demselben Gerät einfach ein Pack laden können.
 
 > Status: früher Prototyp. Firmware baut und flasht; Hardware-Test steht aus.
 
+<p align="center"><img src="docs/screenshot.png" alt="IRescue Weboberfläche" width="420"></p>
+
 ## Modi
 
 - **Automatische Suche** mit dem Lichtsensor als Orakel — stoppt beim Blinken.

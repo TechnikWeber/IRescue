@@ -9,6 +9,8 @@ device can just load a pack.
 
 > Status: early prototype. Firmware builds and flashes; needs hardware testing.
 
+<p align="center"><img src="docs/screenshot.png" alt="IRescue web interface" width="420"></p>
+
 ## Modes
 
 - **Automatic search** with the light sensor as an oracle — stops on the blink.
