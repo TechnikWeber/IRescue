@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IRescue — Web Flasher</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { margin:0; font:16px/1.6 system-ui,sans-serif; background:#12141a; color:#e6e8ee;
+           display:flex; min-height:100vh; align-items:center; justify-content:center; padding:24px; }
+    main { max-width:560px; }
+    h1 { font-size:28px; margin:0 0 4px; }
+    .sub { color:#8b90a0; margin:0 0 24px; }
+    .card { background:#1b1e27; border-radius:14px; padding:22px 24px; margin:16px 0; }
+    ol { padding-left:20px; }
+    code { background:#0d0f14; padding:2px 6px; border-radius:5px; font-family:ui-monospace,monospace; }
+    a { color:#4da3ff; }
+    .btnrow { text-align:center; margin:22px 0 6px; }
+    esp-web-install-button { --esp-tools-button-color:#04101f; --esp-tools-button-background-color:#4da3ff; }
+    .note { color:#8b90a0; font-size:14px; }
+    .warn { color:#ffb45d; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>IRescue — Web Flasher</h1>
+    <p class="sub">ESP32 direkt aus dem Browser flashen. Keine IDE, keine Installation.</p>
+
+    <div class="card">
+      <ol>
+        <li>ESP32 DevKit-C per <strong>USB-Datenkabel</strong> anstecken.</li>
+        <li>Browser: <strong>Chrome</strong> oder <strong>Edge</strong> am Desktop (Web Serial).</li>
+        <li>Auf „Connect“ klicken, den seriellen Port des ESP32 wählen, „Install“.</li>
+      </ol>
+      <div class="btnrow">
+        <esp-web-install-button manifest="manifest.json">
+          <button slot="activate">⚡ IRescue installieren</button>
+          <span slot="unsupported" class="warn">Dieser Browser kann kein Web Serial — bitte Chrome/Edge am Desktop.</span>
+          <span slot="not-allowed" class="warn">Web Serial ist nicht erlaubt (nur über HTTPS).</span>
+        </esp-web-install-button>
+      </div>
+      <p class="note">Klemmt es beim Verbinden? Beim Klick auf „Install“ die
+        <strong>BOOT</strong>-Taste am ESP32 gedrückt halten (manche Boards brauchen das).</p>
+    </div>
+
+    <div class="card">
+      <p>Nach dem Flashen: mit dem offenen WLAN <strong>IRescue-XXXX</strong> verbinden —
+        die Oberfläche öffnet sich automatisch (Captive Portal). Sonst
+        <code>http://192.168.4.1/</code> aufrufen.</p>
+      <p class="note">Lieber selbst kompilieren oder ohne Browser flashen?
+        Siehe <a href="https://github.com/TechnikWeber/IRescue">Repository</a> und
+        <code>docs/FLASHEN.md</code>.</p>
+    </div>
+  </main>
+
+  <script type="module"
+    src="https://unpkg.com/esp-web-tools@10/dist/web/install-button.js?module"></script>
+</body>
+</html>

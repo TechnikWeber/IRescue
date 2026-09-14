@@ -1,0 +1,1540 @@
+{
+ "codes": [
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 0,
+   "name": "addr0 cmd0"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 1,
+   "name": "addr0 cmd1"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 2,
+   "name": "addr0 cmd2"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 3,
+   "name": "addr0 cmd3"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 4,
+   "name": "addr0 cmd4"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 5,
+   "name": "addr0 cmd5"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 6,
+   "name": "addr0 cmd6"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 7,
+   "name": "addr0 cmd7"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 8,
+   "name": "addr0 cmd8"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 9,
+   "name": "addr0 cmd9"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 10,
+   "name": "addr0 cmd10"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 11,
+   "name": "addr0 cmd11"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 12,
+   "name": "addr0 cmd12"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 13,
+   "name": "addr0 cmd13"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 14,
+   "name": "addr0 cmd14"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 15,
+   "name": "addr0 cmd15"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 16,
+   "name": "addr0 cmd16"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 17,
+   "name": "addr0 cmd17"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 18,
+   "name": "addr0 cmd18"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 19,
+   "name": "addr0 cmd19"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 20,
+   "name": "addr0 cmd20"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 21,
+   "name": "addr0 cmd21"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 22,
+   "name": "addr0 cmd22"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 23,
+   "name": "addr0 cmd23"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 24,
+   "name": "addr0 cmd24"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 25,
+   "name": "addr0 cmd25"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 26,
+   "name": "addr0 cmd26"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 27,
+   "name": "addr0 cmd27"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 28,
+   "name": "addr0 cmd28"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 29,
+   "name": "addr0 cmd29"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 30,
+   "name": "addr0 cmd30"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 31,
+   "name": "addr0 cmd31"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 32,
+   "name": "addr0 cmd32"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 33,
+   "name": "addr0 cmd33"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 34,
+   "name": "addr0 cmd34"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 35,
+   "name": "addr0 cmd35"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 36,
+   "name": "addr0 cmd36"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 37,
+   "name": "addr0 cmd37"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 38,
+   "name": "addr0 cmd38"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 39,
+   "name": "addr0 cmd39"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 40,
+   "name": "addr0 cmd40"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 41,
+   "name": "addr0 cmd41"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 42,
+   "name": "addr0 cmd42"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 43,
+   "name": "addr0 cmd43"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 44,
+   "name": "addr0 cmd44"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 45,
+   "name": "addr0 cmd45"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 46,
+   "name": "addr0 cmd46"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 47,
+   "name": "addr0 cmd47"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 48,
+   "name": "addr0 cmd48"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 49,
+   "name": "addr0 cmd49"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 50,
+   "name": "addr0 cmd50"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 51,
+   "name": "addr0 cmd51"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 52,
+   "name": "addr0 cmd52"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 53,
+   "name": "addr0 cmd53"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 54,
+   "name": "addr0 cmd54"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 55,
+   "name": "addr0 cmd55"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 56,
+   "name": "addr0 cmd56"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 57,
+   "name": "addr0 cmd57"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 58,
+   "name": "addr0 cmd58"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 59,
+   "name": "addr0 cmd59"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 60,
+   "name": "addr0 cmd60"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 61,
+   "name": "addr0 cmd61"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 62,
+   "name": "addr0 cmd62"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 63,
+   "name": "addr0 cmd63"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 64,
+   "name": "addr0 cmd64"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 65,
+   "name": "addr0 cmd65"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 66,
+   "name": "addr0 cmd66"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 67,
+   "name": "addr0 cmd67"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 68,
+   "name": "addr0 cmd68"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 69,
+   "name": "addr0 cmd69"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 70,
+   "name": "addr0 cmd70"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 71,
+   "name": "addr0 cmd71"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 72,
+   "name": "addr0 cmd72"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 73,
+   "name": "addr0 cmd73"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 74,
+   "name": "addr0 cmd74"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 75,
+   "name": "addr0 cmd75"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 76,
+   "name": "addr0 cmd76"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 77,
+   "name": "addr0 cmd77"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 78,
+   "name": "addr0 cmd78"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 79,
+   "name": "addr0 cmd79"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 80,
+   "name": "addr0 cmd80"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 81,
+   "name": "addr0 cmd81"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 82,
+   "name": "addr0 cmd82"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 83,
+   "name": "addr0 cmd83"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 84,
+   "name": "addr0 cmd84"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 85,
+   "name": "addr0 cmd85"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 86,
+   "name": "addr0 cmd86"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 87,
+   "name": "addr0 cmd87"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 88,
+   "name": "addr0 cmd88"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 89,
+   "name": "addr0 cmd89"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 90,
+   "name": "addr0 cmd90"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 91,
+   "name": "addr0 cmd91"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 92,
+   "name": "addr0 cmd92"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 93,
+   "name": "addr0 cmd93"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 94,
+   "name": "addr0 cmd94"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 95,
+   "name": "addr0 cmd95"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 96,
+   "name": "addr0 cmd96"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 97,
+   "name": "addr0 cmd97"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 98,
+   "name": "addr0 cmd98"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 99,
+   "name": "addr0 cmd99"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 100,
+   "name": "addr0 cmd100"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 101,
+   "name": "addr0 cmd101"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 102,
+   "name": "addr0 cmd102"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 103,
+   "name": "addr0 cmd103"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 104,
+   "name": "addr0 cmd104"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 105,
+   "name": "addr0 cmd105"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 106,
+   "name": "addr0 cmd106"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 107,
+   "name": "addr0 cmd107"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 108,
+   "name": "addr0 cmd108"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 109,
+   "name": "addr0 cmd109"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 110,
+   "name": "addr0 cmd110"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 111,
+   "name": "addr0 cmd111"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 112,
+   "name": "addr0 cmd112"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 113,
+   "name": "addr0 cmd113"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 114,
+   "name": "addr0 cmd114"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 115,
+   "name": "addr0 cmd115"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 116,
+   "name": "addr0 cmd116"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 117,
+   "name": "addr0 cmd117"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 118,
+   "name": "addr0 cmd118"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 119,
+   "name": "addr0 cmd119"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 120,
+   "name": "addr0 cmd120"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 121,
+   "name": "addr0 cmd121"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 122,
+   "name": "addr0 cmd122"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 123,
+   "name": "addr0 cmd123"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 124,
+   "name": "addr0 cmd124"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 125,
+   "name": "addr0 cmd125"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 126,
+   "name": "addr0 cmd126"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 127,
+   "name": "addr0 cmd127"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 128,
+   "name": "addr0 cmd128"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 129,
+   "name": "addr0 cmd129"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 130,
+   "name": "addr0 cmd130"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 131,
+   "name": "addr0 cmd131"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 132,
+   "name": "addr0 cmd132"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 133,
+   "name": "addr0 cmd133"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 134,
+   "name": "addr0 cmd134"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 135,
+   "name": "addr0 cmd135"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 136,
+   "name": "addr0 cmd136"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 137,
+   "name": "addr0 cmd137"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 138,
+   "name": "addr0 cmd138"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 139,
+   "name": "addr0 cmd139"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 140,
+   "name": "addr0 cmd140"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 141,
+   "name": "addr0 cmd141"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 142,
+   "name": "addr0 cmd142"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 143,
+   "name": "addr0 cmd143"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 144,
+   "name": "addr0 cmd144"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 145,
+   "name": "addr0 cmd145"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 146,
+   "name": "addr0 cmd146"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 147,
+   "name": "addr0 cmd147"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 148,
+   "name": "addr0 cmd148"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 149,
+   "name": "addr0 cmd149"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 150,
+   "name": "addr0 cmd150"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 151,
+   "name": "addr0 cmd151"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 152,
+   "name": "addr0 cmd152"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 153,
+   "name": "addr0 cmd153"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 154,
+   "name": "addr0 cmd154"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 155,
+   "name": "addr0 cmd155"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 156,
+   "name": "addr0 cmd156"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 157,
+   "name": "addr0 cmd157"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 158,
+   "name": "addr0 cmd158"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 159,
+   "name": "addr0 cmd159"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 160,
+   "name": "addr0 cmd160"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 161,
+   "name": "addr0 cmd161"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 162,
+   "name": "addr0 cmd162"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 163,
+   "name": "addr0 cmd163"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 164,
+   "name": "addr0 cmd164"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 165,
+   "name": "addr0 cmd165"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 166,
+   "name": "addr0 cmd166"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 167,
+   "name": "addr0 cmd167"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 168,
+   "name": "addr0 cmd168"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 169,
+   "name": "addr0 cmd169"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 170,
+   "name": "addr0 cmd170"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 171,
+   "name": "addr0 cmd171"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 172,
+   "name": "addr0 cmd172"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 173,
+   "name": "addr0 cmd173"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 174,
+   "name": "addr0 cmd174"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 175,
+   "name": "addr0 cmd175"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 176,
+   "name": "addr0 cmd176"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 177,
+   "name": "addr0 cmd177"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 178,
+   "name": "addr0 cmd178"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 179,
+   "name": "addr0 cmd179"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 180,
+   "name": "addr0 cmd180"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 181,
+   "name": "addr0 cmd181"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 182,
+   "name": "addr0 cmd182"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 183,
+   "name": "addr0 cmd183"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 184,
+   "name": "addr0 cmd184"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 185,
+   "name": "addr0 cmd185"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 186,
+   "name": "addr0 cmd186"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 187,
+   "name": "addr0 cmd187"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 188,
+   "name": "addr0 cmd188"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 189,
+   "name": "addr0 cmd189"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 190,
+   "name": "addr0 cmd190"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 191,
+   "name": "addr0 cmd191"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 192,
+   "name": "addr0 cmd192"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 193,
+   "name": "addr0 cmd193"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 194,
+   "name": "addr0 cmd194"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 195,
+   "name": "addr0 cmd195"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 196,
+   "name": "addr0 cmd196"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 197,
+   "name": "addr0 cmd197"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 198,
+   "name": "addr0 cmd198"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 199,
+   "name": "addr0 cmd199"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 200,
+   "name": "addr0 cmd200"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 201,
+   "name": "addr0 cmd201"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 202,
+   "name": "addr0 cmd202"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 203,
+   "name": "addr0 cmd203"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 204,
+   "name": "addr0 cmd204"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 205,
+   "name": "addr0 cmd205"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 206,
+   "name": "addr0 cmd206"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 207,
+   "name": "addr0 cmd207"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 208,
+   "name": "addr0 cmd208"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 209,
+   "name": "addr0 cmd209"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 210,
+   "name": "addr0 cmd210"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 211,
+   "name": "addr0 cmd211"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 212,
+   "name": "addr0 cmd212"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 213,
+   "name": "addr0 cmd213"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 214,
+   "name": "addr0 cmd214"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 215,
+   "name": "addr0 cmd215"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 216,
+   "name": "addr0 cmd216"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 217,
+   "name": "addr0 cmd217"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 218,
+   "name": "addr0 cmd218"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 219,
+   "name": "addr0 cmd219"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 220,
+   "name": "addr0 cmd220"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 221,
+   "name": "addr0 cmd221"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 222,
+   "name": "addr0 cmd222"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 223,
+   "name": "addr0 cmd223"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 224,
+   "name": "addr0 cmd224"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 225,
+   "name": "addr0 cmd225"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 226,
+   "name": "addr0 cmd226"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 227,
+   "name": "addr0 cmd227"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 228,
+   "name": "addr0 cmd228"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 229,
+   "name": "addr0 cmd229"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 230,
+   "name": "addr0 cmd230"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 231,
+   "name": "addr0 cmd231"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 232,
+   "name": "addr0 cmd232"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 233,
+   "name": "addr0 cmd233"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 234,
+   "name": "addr0 cmd234"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 235,
+   "name": "addr0 cmd235"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 236,
+   "name": "addr0 cmd236"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 237,
+   "name": "addr0 cmd237"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 238,
+   "name": "addr0 cmd238"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 239,
+   "name": "addr0 cmd239"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 240,
+   "name": "addr0 cmd240"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 241,
+   "name": "addr0 cmd241"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 242,
+   "name": "addr0 cmd242"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 243,
+   "name": "addr0 cmd243"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 244,
+   "name": "addr0 cmd244"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 245,
+   "name": "addr0 cmd245"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 246,
+   "name": "addr0 cmd246"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 247,
+   "name": "addr0 cmd247"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 248,
+   "name": "addr0 cmd248"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 249,
+   "name": "addr0 cmd249"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 250,
+   "name": "addr0 cmd250"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 251,
+   "name": "addr0 cmd251"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 252,
+   "name": "addr0 cmd252"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 253,
+   "name": "addr0 cmd253"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 254,
+   "name": "addr0 cmd254"
+  },
+  {
+   "protocol": "NEC",
+   "address": 0,
+   "command": 255,
+   "name": "addr0 cmd255"
+  }
+ ]
+}

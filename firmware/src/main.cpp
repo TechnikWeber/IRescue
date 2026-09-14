@@ -1,5 +1,6 @@
 #include <Arduino.h>
 #include <WiFi.h>
+#include <DNSServer.h>
 #include <LittleFS.h>
 #include <ArduinoJson.h>
 #include <ESPAsyncWebServer.h>
@@ -20,6 +21,7 @@ Engine  engine(irsend, oracle);
 
 AsyncWebServer server(80);
 AsyncWebSocket ws("/ws");
+DNSServer      dns;
 
 bool learning = false;
 
@@ -123,7 +125,17 @@ void setupRoutes() {
   server.on("/api/learn/start", HTTP_POST, [](AsyncWebServerRequest *r){ learning = true;  irrecv.resume(); pushStatus(); sendJson(r,200,statusJson()); });
   server.on("/api/learn/stop",  HTTP_POST, [](AsyncWebServerRequest *r){ learning = false; pushStatus(); sendJson(r,200,statusJson()); });
 
-  server.onNotFound([](AsyncWebServerRequest *r){ r->send(404, "text/plain", "not found"); });
+  // Captive portal: OS probe URLs -> redirect to the UI so it pops up.
+  auto toPortal = [](AsyncWebServerRequest *r) {
+    r->redirect("http://" + WiFi.softAPIP().toString() + "/");
+  };
+  server.on("/generate_204", HTTP_ANY, toPortal);       // Android
+  server.on("/gen_204", HTTP_ANY, toPortal);            // Android
+  server.on("/hotspot-detect.html", HTTP_ANY, toPortal);// Apple
+  server.on("/canonical.html", HTTP_ANY, toPortal);     // Firefox
+  server.on("/ncsi.txt", HTTP_ANY, toPortal);           // Windows
+  server.on("/connecttest.txt", HTTP_ANY, toPortal);    // Windows
+  server.onNotFound(toPortal);                          // anything else -> UI
 }
 
 // ---- learning loop -------------------------------------------------------
@@ -156,14 +168,15 @@ void setup() {
   irrecv.enableIRIn();
   oracle.begin(PIN_LIGHT);
 
-  // Always-on AP so the UI is reachable without any network setup.
+  // Always-on OPEN AP so the UI is reachable without any network setup.
   uint64_t chip = ESP.getEfuseMac();
   char ssid[32];
   snprintf(ssid, sizeof(ssid), "%s%04X", AP_SSID_PREFIX, (uint16_t)(chip & 0xFFFF));
   WiFi.mode(WIFI_AP);
-  WiFi.softAP(ssid, AP_PASSWORD);
-  Serial.printf("AP: %s  pw: %s  ->  http://%s/\n",
-                ssid, AP_PASSWORD, WiFi.softAPIP().toString().c_str());
+  WiFi.softAP(ssid);                       // open network, no password
+  IPAddress ip = WiFi.softAPIP();
+  dns.start(53, "*", ip);                  // resolve every domain to us -> captive portal
+  Serial.printf("Open AP: %s  ->  http://%s/\n", ssid, ip.toString().c_str());
 
   ws.onEvent([](AsyncWebSocket *, AsyncWebSocketClient *c, AwsEventType type,
                 void *, uint8_t *, size_t) {
@@ -176,6 +189,7 @@ void setup() {
 
 uint32_t lastPush = 0;
 void loop() {
+  dns.processNextRequest();
   engine.tick();          // one code per iteration (no-op when idle/paused)
   handleLearn();
 

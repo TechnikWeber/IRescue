@@ -5,9 +5,9 @@
 #define PIN_LIGHT     34    // ADC1 (input-only) light sensor. ADC2 is unusable with WiFi.
 #define PIN_IR_RECV   27    // TSOP38238 OUT (only needed for learning remotes)
 
-// ---- Access point (always on, so you never need to know an IP) ------------
+// ---- Access point (open, always on) --------------------------------------
+// No password: connect and a captive portal pops the UI up automatically.
 #define AP_SSID_PREFIX "IRescue-"
-#define AP_PASSWORD    "irescue123"   // >= 8 chars
 
 // ---- IR timing -----------------------------------------------------------
 // Time we watch the lamp after each frame. The lamp reacts with a delay, so

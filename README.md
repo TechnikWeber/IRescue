@@ -30,22 +30,19 @@ device can just load a pack.
 | Light sensor (e.g. TEMT6000 or phototransistor) | Detects the lamp blinking |
 | IR receiver TSOP38238 / VS1838B (optional) | Learning remotes |
 
-## Quick start
+## Get it running (no toolchain needed)
 
-```
-# 1. build the candidate list from the CC0 Flipper-IRDB (optional but fast win)
-git clone https://github.com/Lucaslhm/Flipper-IRDB ~/ir-databases/Flipper-IRDB
-python3 tools/import_db.py --src ~/ir-databases/Flipper-IRDB/LED_Lighting \
-    --out firmware/data/candidates.json
+1. **Flash from the browser:** open the [**Web Flasher**](https://technikweber.github.io/IRescue/)
+   in Chrome/Edge, plug in the ESP32 via USB, click install. No IDE, no install.
+   Other ways (esptool, build it yourself): [docs/FLASHEN.md](docs/FLASHEN.md).
+2. **Wire it up:** [docs/HARDWARE.md](docs/HARDWARE.md) · parts list:
+   [docs/EINKAUFSLISTE.md](docs/EINKAUFSLISTE.md).
+3. **Use it:** connect to the **open** WiFi `IRescue-XXXX` — the UI opens by
+   itself (captive portal), otherwise `http://192.168.4.1/`. Calibrate the light
+   sensor, then start the search.
 
-# 2. flash firmware + web UI
-cd firmware
-pio run -t upload      # firmware
-pio run -t uploadfs    # web UI (data/ -> LittleFS)
-
-# 3. connect to the WiFi "IRescue-XXXX" (password: irescue123)
-#    open http://192.168.4.1/  -> calibrate the sensor -> start the search
-```
+Prebuilt binaries live in [`webflasher/firmware/`](webflasher/firmware/) and are
+rebuilt on every push by CI, so anyone can flash, compile and modify.
 
 ## Repository layout
 
@@ -53,9 +50,10 @@ pio run -t uploadfs    # web UI (data/ -> LittleFS)
 firmware/       PlatformIO project (ESP32, IRremoteESP8266, async web UI)
   src/          firmware source (engine, oracle, packs, web)
   data/         web UI served from LittleFS (+ candidates.json)
+webflasher/     browser flasher (GitHub Pages) + prebuilt binaries
 packs/          device packs (.ir, Flipper-compatible), one per remote
 tools/          import_db.py: build a candidate list from a code database
-docs/           concept and notes
+docs/           concept, hardware, shopping list, flashing & build guides
 ```
 
 ## Databases & licenses

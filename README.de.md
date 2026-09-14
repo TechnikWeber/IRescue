@@ -32,22 +32,21 @@ teilt**, damit andere mit demselben Gerät einfach ein Pack laden können.
 | Lichtsensor (z. B. TEMT6000 oder Fototransistor) | Erkennt das Blinken der Lampe |
 | IR-Empfänger TSOP38238 / VS1838B (optional) | Fernbedienungen anlernen |
 
-## Schnellstart
+## Loslegen (ganz ohne Toolchain)
 
-```
-# 1. Kandidatenliste aus dem CC0-Flipper-IRDB bauen (optional, aber schnell)
-git clone https://github.com/Lucaslhm/Flipper-IRDB ~/ir-databases/Flipper-IRDB
-python3 tools/import_db.py --src ~/ir-databases/Flipper-IRDB/LED_Lighting \
-    --out firmware/data/candidates.json
+1. **Aus dem Browser flashen:** [**Web Flasher**](https://technikweber.github.io/IRescue/)
+   in Chrome/Edge öffnen, ESP32 per USB anstecken, „Installieren“. Keine IDE,
+   nichts installieren. Andere Wege (esptool, selbst bauen):
+   [docs/FLASHEN.md](docs/FLASHEN.md).
+2. **Verdrahten:** [docs/HARDWARE.md](docs/HARDWARE.md) · Einkaufsliste:
+   [docs/EINKAUFSLISTE.md](docs/EINKAUFSLISTE.md).
+3. **Benutzen:** mit dem **offenen** WLAN `IRescue-XXXX` verbinden — die
+   Oberfläche öffnet sich von selbst (Captive Portal), sonst
+   `http://192.168.4.1/`. Lichtsensor kalibrieren, dann Suche starten.
 
-# 2. Firmware + Web-UI flashen
-cd firmware
-pio run -t upload      # Firmware
-pio run -t uploadfs    # Web-UI (data/ -> LittleFS)
-
-# 3. mit dem WLAN "IRescue-XXXX" verbinden (Passwort: irescue123)
-#    http://192.168.4.1/ öffnen -> Sensor kalibrieren -> Suche starten
-```
+Fertige Binärdateien liegen in [`webflasher/firmware/`](webflasher/firmware/)
+und werden bei jedem Push per CI neu gebaut — jeder kann flashen, kompilieren
+und ändern.
 
 ## Repository-Aufbau
 
@@ -55,9 +54,10 @@ pio run -t uploadfs    # Web-UI (data/ -> LittleFS)
 firmware/       PlatformIO-Projekt (ESP32, IRremoteESP8266, async Web-UI)
   src/          Firmware-Quellen (Engine, Oracle, Packs, Web)
   data/         Web-UI aus dem LittleFS (+ candidates.json)
+webflasher/     Browser-Flasher (GitHub Pages) + fertige Binärdateien
 packs/          Geräte-Packs (.ir, Flipper-kompatibel), eins pro Fernbedienung
 tools/          import_db.py: Kandidatenliste aus einer Code-Datenbank bauen
-docs/           Konzept und Notizen
+docs/           Konzept, Hardware, Einkaufsliste, Flash- & Build-Anleitung
 ```
 
 ## Datenbanken & Lizenzen

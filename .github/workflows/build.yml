@@ -1,0 +1,59 @@
+name: build & deploy web flasher
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: "3.12" }
+
+      - name: Install PlatformIO
+        run: pip install -U platformio
+
+      - name: Build firmware + filesystem
+        working-directory: firmware
+        run: |
+          pio run
+          pio run -t buildfs
+
+      - name: Merge into one flashable image
+        working-directory: firmware
+        run: |
+          B=.pio/build/esp32dev
+          BOOT=$(find ~/.platformio -name boot_app0.bin | head -1)
+          mkdir -p ../webflasher/firmware
+          cp $B/bootloader.bin $B/partitions.bin $B/firmware.bin $B/littlefs.bin "$BOOT" ../webflasher/firmware/
+          pio pkg exec -p tool-esptoolpy -- esptool.py --chip esp32 \
+            merge_bin --fill-flash-size 4MB -o ../webflasher/firmware/irescue-full.bin \
+            0x1000 $B/bootloader.bin 0x8000 $B/partitions.bin 0xe000 "$BOOT" \
+            0x10000 $B/firmware.bin 0x290000 $B/littlefs.bin
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: irescue-firmware
+          path: webflasher/firmware/*.bin
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: webflasher
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
