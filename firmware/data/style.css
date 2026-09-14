@@ -1,0 +1,28 @@
+:root { color-scheme: dark; --bg:#12141a; --card:#1b1e27; --fg:#e6e8ee; --mut:#8b90a0; --acc:#4da3ff; --dan:#ff5d5d; --ok:#48d18b; }
+* { box-sizing: border-box; }
+body { margin:0; font:15px/1.5 system-ui,sans-serif; background:var(--bg); color:var(--fg); }
+header { display:flex; align-items:center; gap:12px; padding:16px 20px; }
+h1 { margin:0; font-size:22px; letter-spacing:.5px; }
+h2 { margin:0 0 12px; font-size:15px; color:var(--mut); text-transform:uppercase; letter-spacing:.5px; }
+.card { background:var(--card); border-radius:12px; padding:18px 20px; margin:0 16px 16px; max-width:640px; }
+.row { display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:8px 0; }
+.hint { color:var(--mut); font-size:13px; margin:8px 0; }
+.mono { font-family:ui-monospace,monospace; }
+label { display:block; margin:10px 0; }
+input[type=number] { width:70px; }
+button { background:#2a2e3a; color:var(--fg); border:0; border-radius:8px; padding:9px 16px; font-size:14px; cursor:pointer; }
+button:hover { background:#343a49; }
+button.primary { background:var(--acc); color:#04101f; font-weight:600; }
+button.danger { background:transparent; color:var(--dan); box-shadow:inset 0 0 0 1px var(--dan); }
+.pill { font-size:12px; padding:3px 10px; border-radius:20px; }
+.pill.off { background:#3a2a2a; color:var(--dan); }
+.pill.on { background:#243a2e; color:var(--ok); }
+.gauge { flex:1; height:14px; background:#0d0f14; border-radius:7px; overflow:hidden; }
+#bar { height:100%; width:0; background:linear-gradient(90deg,var(--acc),var(--ok)); transition:width .1s; }
+.progress { height:10px; background:#0d0f14; border-radius:5px; overflow:hidden; margin:10px 0 6px; }
+#prog { height:100%; width:0; background:var(--acc); transition:width .2s; }
+.modes label { background:#0d0f14; padding:10px 12px; border-radius:8px; }
+table { width:100%; border-collapse:collapse; font-size:14px; }
+th,td { text-align:left; padding:6px 8px; border-bottom:1px solid #2a2e3a; }
+th { color:var(--mut); font-weight:500; }
+ul { padding-left:18px; }

@@ -36,11 +36,17 @@ Extended NEC und exotische Protokolle nur über Listen bekannter Adressen.
 ## 2. Suchstrategie (in dieser Reihenfolge)
 
 1. **Kandidatenliste aus Datenbanken** (Minuten)
-   - [Flipper-IRDB](https://github.com/Lucaslhm/Flipper-IRDB): Kategorien LED/Lighting/Fans
-   - [IRDB](https://github.com/probonopd/irdb): CSVs nach Hersteller/Protokoll
-   - LIRC-Remotes-Datenbank
-   - Ein Tool entdoppelt alles zu einer Liste `(Protokoll, Adresse, Befehl)`,
-     sortiert nach Häufigkeit. Lizenzen der Quellen vor dem Einbündeln prüfen.
+   - [Flipper-IRDB](https://github.com/Lucaslhm/Flipper-IRDB): **CC0/Public
+     Domain** → dürfen wir einbetten, umbauen und mit-veröffentlichen.
+     Das ist unsere Standardquelle. Kategorien LED_Lighting, Fans.
+   - [irdb](https://github.com/probonopd/irdb): **eigene Lizenz mit Auflagen**
+     (bis zu 3 Geräte kostenlos stellen, GitHub-Issue eröffnen, Hinweis
+     einbauen) → **nicht mit-ausliefern**, nur lokal herunterladen und nutzen.
+   - [LIRC-Remotes](https://sourceforge.net/projects/lirc-remotes/): GPL
+     (Copyleft) → nur unter GPL-Bedingungen, lokal herunterladen.
+   - `tools/import_db.py` entdoppelt Flipper-IRDB zu einer Liste
+     `(Protokoll, Adresse, Befehl)`, sortiert nach Häufigkeit → `candidates.json`.
+     Details und Download-Orte: [../packs/README.md](../packs/README.md).
 2. **Häufige NEC-Adressen × alle 256 Befehle** (Minuten)
    - Aus Schritt 1 ergeben sich die typischen Adressen (bei LED-Strips z. B.
      `0x00`, `0xEF00`/`0x00EF`-Varianten); jede Adresse kostet nur ≈ 30 s.
@@ -88,14 +94,20 @@ ADC1-Pins verwenden, weil ADC2 mit aktivem WLAN nicht nutzbar ist.
 
 - **PlatformIO + Arduino-Framework**, Bibliothek **IRremoteESP8266**
   (unterstützt ESP32, Senden und Empfangen vieler Protokolle).
-- Bedienung zunächst über serielle Konsole; später Web-UI über WLAN
-  (Fortschritt, Pause/Fortsetzen, Treffer testen).
+- **Web-UI von Anfang an** (entschieden): Der ESP32 (DevKit-C) macht einen
+  eigenen Accesspoint `IRescue-XXXX` auf. Damit ist die Oberfläche ohne
+  WLAN-Einrichtung erreichbar. UI zeigt Sensor live, Fortschritt,
+  Pause/Weiter, Treffer testen und speichern, Anlernen.
+  Umsetzung: ESPAsyncWebServer + WebSocket, UI im LittleFS.
 - Fortschritt im NVS/Flash sichern, damit ein Sweep nach Stromausfall
-  weiterläuft.
+  weiterläuft. *(noch TODO)*
 
 ## 6. Packs (Anlernen & Teilen)
 
-Vorschlag: das **Flipper-`.ir`-Format** übernehmen. Es ist verbreitet,
+**Entschieden:** eingelernte Fernbedienungen werden **je Gerät als ein eigenes
+Pack** gespeichert (z. B. `laufband-remote.ir`, `wohnzimmer-lampe.ir`), nicht
+in eine große gemeinsame Datenbank gemischt. Genau diese Geräte-Packs teilen
+wir später auf GitHub. Format: das **Flipper-`.ir`-Format**. Es ist verbreitet,
 menschenlesbar und Packs sind direkt mit Flipper Zero nutzbar:
 
 ```
@@ -116,8 +128,17 @@ Rohsignale (`type: raw`) für unbekannte Protokolle.
 Eigene Bruteforce-Treffer landen automatisch als Pack-Entwurf, so dass jeder
 Fund später anderen hilft.
 
-## Offene Fragen
+## Entscheidungen (2026-09-14)
 
-- Ist die Lampe sicher IR (siehe Abschnitt 0)? Hersteller/Modell?
-- Welches ESP32-Board und welche Bauteile sind vorhanden?
-- Web-UI von Anfang an oder erst mal nur serielle Konsole?
+- Lampe ist IR. ✔
+- Board: ESP32 **DevKit-C** vorhanden. ✔
+- **Web-UI von Anfang an** (AP-Modus). ✔
+- Datenbank: **Flipper-IRDB (CC0)** einbetten/erweitern; irdb & LIRC nur lokal. ✔
+- Packs **je Gerät einzeln** (z. B. „Laufband-Remote“). ✔
+
+## Offene Fragen / TODO
+
+- Bauteile: IR-LED-Typ, Transistor, Lichtsensor vorhanden? Sonst Einkaufsliste.
+- Fortschritt über Stromausfall hinweg im NVS sichern.
+- Extended-NEC-Byte-Layout beim Pack-Export.
+- Nicht-NEC-Protokolle beim Anlernen sauber exportieren (aktuell nur roh).

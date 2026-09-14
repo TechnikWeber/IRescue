@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>IRescue</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <h1>IRescue</h1>
+    <span id="conn" class="pill off">verbindet…</span>
+  </header>
+
+  <section class="card">
+    <h2>1 · Lichtsensor</h2>
+    <div class="row">
+      <div class="gauge"><div id="bar"></div></div>
+      <span id="sensorVal" class="mono">–</span>
+    </div>
+    <p class="hint">Lampe einschalten, Sensor davor, dann kalibrieren. Grundlinie = Helligkeit im Normalzustand.</p>
+    <div class="row">
+      <button id="calBtn">Kalibrieren</button>
+      <span id="baseVal" class="mono">Grundlinie: –</span>
+    </div>
+    <label>Empfindlichkeit <input id="sens" type="range" min="0.1" max="0.8" step="0.05" value="0.3"><span id="sensLbl" class="mono">30%</span></label>
+    <label>Wartezeit nach Befehl <input id="gap" type="range" min="60" max="400" step="10" value="110"><span id="gapLbl" class="mono">110 ms</span></label>
+  </section>
+
+  <section class="card">
+    <h2>2 · Suche</h2>
+    <div class="modes">
+      <label><input type="radio" name="mode" value="pack" checked> Bekannte Codes (Pack) — schnellster Versuch</label>
+      <label><input type="radio" name="mode" value="addr"> Eine Adresse, alle 256 Befehle <input id="addr" type="number" min="0" max="255" value="0"></label>
+      <label><input type="radio" name="mode" value="full"> Kompletter NEC-Sweep — ~2 h</label>
+    </div>
+    <div class="row">
+      <button id="startBtn" class="primary">Start</button>
+      <button id="pauseBtn">Pause</button>
+      <button id="resumeBtn">Weiter</button>
+      <button id="stopBtn" class="danger">Stop</button>
+    </div>
+    <div class="progress"><div id="prog"></div></div>
+    <span id="progLbl" class="mono">–</span>
+  </section>
+
+  <section class="card">
+    <h2>3 · Treffer</h2>
+    <p class="hint">Beim Blinken pausiert die Suche. Treffer bestätigen (Senden) und ins Gerät-Pack speichern.</p>
+    <table id="hits"><thead><tr><th>#</th><th>Adr</th><th>Cmd</th><th>Dip</th><th></th></tr></thead><tbody></tbody></table>
+  </section>
+
+  <section class="card">
+    <h2>4 · Fernbedienung anlernen</h2>
+    <div class="row">
+      <button id="learnBtn">Anlernen starten</button>
+      <span id="learnState" class="mono">aus</span>
+    </div>
+    <p class="hint">Braucht einen IR-Empfänger (TSOP38238) an GPIO27. Taste drücken → erscheint hier.</p>
+    <ul id="learned"></ul>
+    <div class="row">
+      <input id="packName" placeholder="Pack-Name, z.B. Laufband-Remote">
+    </div>
+  </section>
+
+  <section class="card">
+    <h2>Packs auf dem Gerät</h2>
+    <ul id="packs"></ul>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
