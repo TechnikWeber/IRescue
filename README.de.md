@@ -80,3 +80,7 @@ die Standardquelle. `irdb` und LIRC haben restriktive/Copyleft-Lizenzen und
 werden nur lokal genutzt. Details und Download-Orte: [packs/README.md](packs/README.md).
 
 Das ausführliche Konzept steht in [docs/KONZEPT.md](docs/KONZEPT.md).
+
+## Lizenz
+
+[MIT](LICENSE).

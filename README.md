@@ -76,3 +76,7 @@ source. `irdb` and LIRC have restrictive/copyleft licenses and are only used
 locally. Details and download locations: [packs/README.md](packs/README.md).
 
 See [docs/KONZEPT.md](docs/KONZEPT.md) (German) for the detailed concept.
+
+## License
+
+[MIT](LICENSE).
