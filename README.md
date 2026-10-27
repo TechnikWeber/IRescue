@@ -1,5 +1,13 @@
 # IRescue
 
+<p>
+  <img alt="Status: beta" src="https://img.shields.io/badge/status-beta-yellow">
+  <a href="https://github.com/TechnikWeber/IRescue/actions/workflows/build.yml"><img alt="build" src="https://img.shields.io/github/actions/workflow/status/TechnikWeber/IRescue/build.yml?branch=main&label=build"></a>
+  <img alt="Platform: ESP32 · web flasher" src="https://img.shields.io/badge/platform-ESP32%20%C2%B7%20web%20flasher-blue">
+  <img alt="UI: Deutsch" src="https://img.shields.io/badge/UI-Deutsch-informational">
+  <a href="LICENSE"><img alt="License: MIT" src="https://img.shields.io/badge/license-MIT-green"></a>
+</p>
+
 Lost the infrared remote for your lamp, LED strip or fan? IRescue is an
 ESP32-based tool that **finds the lost codes by brute force**, and later
 **learns remotes and shares their codes as packs**, so others with the same
