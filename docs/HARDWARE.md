@@ -1,40 +1,40 @@
-# Hardware & Verdrahtung
+# Hardware & wiring
 
-Einkaufsliste: [EINKAUFSLISTE.md](EINKAUFSLISTE.md).
+Parts list: [PARTS.md](PARTS.md).
 
-![Verdrahtung](wiring.svg)
+![Wiring](wiring.svg)
 
-## Verdrahtung als Text
+## Wiring as text
 
 ```
-IR-Sender:
-  ESP32 5V ───[ 33 Ω ]─── Anode IR-LED
-  Kathode IR-LED ───────── Kollektor  (BC337)
-  ESP32 GPIO4 ──[ 1 kΩ ]── Basis      (BC337)
-  Emitter (BC337) ──────── ESP32 GND
+IR transmitter:
+  ESP32 5V ───[ 33 Ω ]─── IR LED anode
+  IR LED cathode ──────── collector  (BC337)
+  ESP32 GPIO4 ──[ 1 kΩ ]── base      (BC337)
+  emitter (BC337) ─────── ESP32 GND
 
-Lichtsensor (TEMT6000):
+Light sensor (TEMT6000):
   VCC ── ESP32 3V3
   GND ── ESP32 GND
-  SIG ── ESP32 GPIO34      (ADC1, Eingang)
+  SIG ── ESP32 GPIO34      (ADC1, input)
 
-IR-Empfänger (TSOP38238, optional, nur Anlernen):
+IR receiver (TSOP38238, optional, learn mode only):
   VCC ── ESP32 3V3
   GND ── ESP32 GND
   OUT ── ESP32 GPIO27
 ```
 
-## Warum so?
+## Why this way?
 
-- **Transistor statt LED direkt am Pin:** Ein GPIO liefert nur ~20 mA. Über den
-  BC337 fließen mit dem 33-Ω-Widerstand ~110 mA gepulst durch die LED → deutlich
-  mehr Reichweite. Der 1-kΩ-Widerstand begrenzt den Basisstrom.
-- **GPIO34 für den Sensor:** Das ist ein ADC1-Pin. ADC2-Pins sind mit aktivem
-  WLAN gesperrt — und WLAN läuft hier immer (Accesspoint).
-- **Alternativer Transistor:** Logic-Level-MOSFET (z. B. 2N7000), dann Gate statt
-  Basis, der 1-kΩ-Widerstand kann bleiben.
+- **Transistor instead of the LED straight on the pin:** a GPIO delivers only
+  ~20 mA. Through the BC337 and the 33 Ω resistor, ~110 mA flow through the LED in
+  pulses → much more range. The 1 kΩ resistor limits the base current.
+- **GPIO34 for the sensor:** it is an ADC1 pin. ADC2 pins are locked while Wi-Fi is
+  active — and Wi-Fi is always on here (access point).
+- **Alternative transistor:** a logic-level MOSFET (e.g. 2N7000), then gate instead
+  of base; the 1 kΩ resistor can stay.
 
-## Pins ändern
+## Changing pins
 
-Alle Pins stehen in [`firmware/src/config.h`](../firmware/src/config.h):
+All pins are in [`firmware/src/config.h`](../firmware/src/config.h):
 `PIN_IR_SEND`, `PIN_LIGHT`, `PIN_IR_RECV`.

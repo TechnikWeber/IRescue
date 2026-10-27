@@ -1,6 +1,6 @@
 #pragma once
 // ---- Pin map (ESP32 DevKit-C) --------------------------------------------
-// IR LED: drive via transistor, NOT straight from the pin. See docs/KONZEPT.md.
+// IR LED: drive via transistor, NOT straight from the pin. See docs/CONCEPT.md.
 #define PIN_IR_SEND   4     // -> 1k -> base of NPN (or gate of logic-level MOSFET)
 #define PIN_LIGHT     34    // ADC1 (input-only) light sensor. ADC2 is unusable with WiFi.
 #define PIN_IR_RECV   27    // TSOP38238 OUT (only needed for learning remotes)

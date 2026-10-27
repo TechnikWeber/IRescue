@@ -1,5 +1,3 @@
-**English** · [Deutsch](README.de.md)
-
 # IRescue
 
 Lost the infrared remote for your lamp, LED strip or fan? IRescue is an
@@ -47,9 +45,9 @@ device can just load a pack.
 
 1. **Flash from the browser:** open the [**Web Flasher**](https://technikweber.github.io/IRescue/)
    in Chrome/Edge, plug in the ESP32 via USB, click install. No IDE, no install.
-   Other ways (esptool, build it yourself): [docs/FLASHEN.md](docs/FLASHEN.md).
+   Other ways (esptool, build it yourself): [docs/FLASHING.md](docs/FLASHING.md).
 2. **Wire it up:** [docs/HARDWARE.md](docs/HARDWARE.md) · parts list:
-   [docs/EINKAUFSLISTE.md](docs/EINKAUFSLISTE.md).
+   [docs/PARTS.md](docs/PARTS.md).
 3. **Use it:** connect to the **open** WiFi `IRescue-XXXX` — the UI opens by
    itself (captive portal), otherwise `http://192.168.4.1/`. Calibrate the light
    sensor, then start the search.
@@ -75,7 +73,7 @@ Flipper-IRDB is **CC0** and can be embedded/extended freely — it is the defaul
 source. `irdb` and LIRC have restrictive/copyleft licenses and are only used
 locally. Details and download locations: [packs/README.md](packs/README.md).
 
-See [docs/KONZEPT.md](docs/KONZEPT.md) (German) for the detailed concept.
+See [docs/CONCEPT.md](docs/CONCEPT.md) for the detailed concept.
 
 ## License
 

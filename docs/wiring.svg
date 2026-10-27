@@ -1,6 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="900" height="560" viewBox="0 0 900 560" font-family="system-ui,Arial,sans-serif">
   <rect width="900" height="560" fill="#ffffff"/>
-  <text x="24" y="34" font-size="22" font-weight="700" fill="#12141a">IRescue — Verdrahtung (ESP32 DevKit-C)</text>
+  <text x="24" y="34" font-size="22" font-weight="700" fill="#12141a">IRescue — wiring (ESP32 DevKit-C)</text>
 
   <!-- ESP32 -->
   <rect x="40" y="90" width="180" height="380" rx="12" fill="#1b1e27"/>
@@ -24,7 +24,7 @@
 
   <!-- ===== IR SENDER (top block) ===== -->
   <rect x="300" y="140" width="560" height="150" rx="10" fill="#f2f5fb" stroke="#c9d3e6"/>
-  <text x="316" y="164" font-size="15" font-weight="700" fill="#12141a">IR-Sender</text>
+  <text x="316" y="164" font-size="15" font-weight="700" fill="#12141a">IR transmitter</text>
 
   <!-- 5V -> 33R -> LED -> collector -->
   <line x1="220" y1="180" x2="360" y2="180" stroke="#e05d5d" stroke-width="3"/>
@@ -34,7 +34,7 @@
   <!-- LED symbol -->
   <polygon points="470,168 470,192 494,180" fill="#e0a020"/>
   <line x1="494" y1="168" x2="494" y2="192" stroke="#12141a" stroke-width="3"/>
-  <text x="482" y="150" font-size="12" fill="#12141a" text-anchor="middle">IR-LED 940nm</text>
+  <text x="482" y="150" font-size="12" fill="#12141a" text-anchor="middle">IR LED 940nm</text>
   <line x1="494" y1="180" x2="560" y2="180" stroke="#12141a" stroke-width="2"/>
   <!-- transistor -->
   <circle cx="590" cy="180" r="26" fill="#fff" stroke="#12141a"/>
@@ -59,7 +59,7 @@
 
   <!-- ===== LIGHT SENSOR (middle) ===== -->
   <rect x="300" y="305" width="270" height="95" rx="10" fill="#eef7f0" stroke="#bfe0c9"/>
-  <text x="316" y="329" font-size="15" font-weight="700" fill="#12141a">Lichtsensor TEMT6000</text>
+  <text x="316" y="329" font-size="15" font-weight="700" fill="#12141a">Light sensor TEMT6000</text>
   <line x1="220" y1="285" x2="330" y2="285" stroke="#48d18b" stroke-width="3"/>
   <text x="336" y="360" font-size="13" fill="#12141a">SIG → GPIO34</text>
   <line x1="330" y1="285" x2="330" y2="352" stroke="#48d18b" stroke-width="3"/>
@@ -69,11 +69,11 @@
 
   <!-- ===== IR RECEIVER (bottom, optional) ===== -->
   <rect x="300" y="410" width="270" height="95" rx="10" fill="#f7f0f0" stroke="#e6c9c9"/>
-  <text x="316" y="434" font-size="15" font-weight="700" fill="#12141a">IR-Empfänger TSOP38238</text>
-  <text x="316" y="452" font-size="12" fill="#8b90a0">optional — nur zum Anlernen</text>
+  <text x="316" y="434" font-size="15" font-weight="700" fill="#12141a">IR receiver TSOP38238</text>
+  <text x="316" y="452" font-size="12" fill="#8b90a0">optional — learn mode only</text>
   <line x1="220" y1="395" x2="336" y2="395" stroke="#c56ae0" stroke-width="3"/>
   <text x="336" y="480" font-size="13" fill="#12141a">OUT → GPIO27  ·  VCC → 3V3  ·  GND → GND</text>
 
   <!-- legend -->
-  <text x="600" y="520" font-size="12" fill="#8b90a0">rot = 5V · blau = GPIO · grün/lila = Signal · grau = GND</text>
+  <text x="600" y="520" font-size="12" fill="#8b90a0">red = 5V · blue = GPIO · green/purple = signal · grey = GND</text>
 </svg>
