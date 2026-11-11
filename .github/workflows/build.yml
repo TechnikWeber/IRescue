@@ -15,8 +15,8 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
+      - uses: actions/checkout@v7
+      - uses: actions/setup-python@v7
         with: { python-version: "3.12" }
 
       - name: Install PlatformIO
@@ -44,14 +44,14 @@ jobs:
         working-directory: webflasher/firmware
         run: sha256sum *.bin > SHA256SUMS && cat SHA256SUMS
 
-      - uses: actions/upload-artifact@v4
+      - uses: actions/upload-artifact@v7
         with:
           name: irescue-firmware
           path: |
             webflasher/firmware/*.bin
             webflasher/firmware/SHA256SUMS
 
-      - uses: actions/upload-pages-artifact@v3
+      - uses: actions/upload-pages-artifact@v5
         with:
           path: webflasher
 
@@ -65,7 +65,7 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     steps:
       - id: deployment
-        uses: actions/deploy-pages@v4
+        uses: actions/deploy-pages@v5
 
   # On a version tag: the merged image (esptool write-flash 0x0) and SHA256SUMS as a release.
   release:
@@ -75,7 +75,7 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/download-artifact@v4
+      - uses: actions/download-artifact@v8
         with: { name: irescue-firmware, path: fw }
       - name: Publish
         env:
