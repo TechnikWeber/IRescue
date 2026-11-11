@@ -4,7 +4,6 @@
   <img alt="Status: alpha" src="https://img.shields.io/badge/status-alpha-orange" >
   <a href="https://github.com/TechnikWeber/IRescue/releases/latest"><img alt="Download" src="https://img.shields.io/github/v/release/TechnikWeber/IRescue?include_prereleases&label=download&color=2ea44f"></a>
   <a href="https://github.com/TechnikWeber/IRescue/releases"><img alt="Downloads" src="https://img.shields.io/github/downloads/TechnikWeber/IRescue/total?color=blue"></a>
-  <a href="https://github.com/TechnikWeber/IRescue/stargazers"><img alt="Stars" src="https://img.shields.io/github/stars/TechnikWeber/IRescue?style=flat&color=yellow"></a>
   <a href="https://github.com/TechnikWeber/IRescue/actions/workflows/build.yml"><img alt="build" src="https://img.shields.io/github/actions/workflow/status/TechnikWeber/IRescue/build.yml?branch=main&label=build"></a>
   <img alt="Platform: ESP32 · web flasher" src="https://img.shields.io/badge/platform-ESP32%20%C2%B7%20web%20flasher-blue">
   <img alt="UI: Deutsch" src="https://img.shields.io/badge/UI-Deutsch-informational">
