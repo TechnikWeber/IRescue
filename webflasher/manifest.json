@@ -1,6 +1,6 @@
 {
   "name": "IRescue",
-  "version": "0.1.0",
+  "version": "0.1.0-alpha",
   "home_assistant_domain": "",
   "new_install_prompt_erase": true,
   "builds": [
